@@ -1,4 +1,4 @@
-package com.clickconcepts.jersey.client;
+package com.clickconcepts.jersey.server.resources;
 
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;

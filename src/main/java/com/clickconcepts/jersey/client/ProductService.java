@@ -1,6 +1,5 @@
 package com.clickconcepts.jersey.client;
 
-import com.clickconcepts.jersey.server.model.MyException;
 import com.clickconcepts.jersey.server.model.Product;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
@@ -64,8 +63,10 @@ public class ProductService {
                 .get(ClientResponse.class);
 
         if (response.getClientResponseStatus() != ClientResponse.Status.OK) {
-            MyException entity = response.getEntity(MyException.class);
-            System.out.println("\n\n\n\n\n\n========================\n" + entity.getMessageCode() + "\n========================\n\n\n\n\n\n");
+            boolean hasEntity = response.hasEntity();
+
+            Object entity = response.getEntity(Object.class);
+//            System.out.println("\n\n\n\n\n\n========================\n" + entity.getMessageCode() + "\n========================\n\n\n\n\n\n");
             return null;
         }
 
